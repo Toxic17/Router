@@ -6,5 +6,7 @@
             "Core\\": "core/"
         }
     },
-    "require": {}
+    "require": {
+        "illuminate/database": "^11.33"
+    }
 }

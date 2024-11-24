@@ -8,13 +8,17 @@ class App{
 
         $routeString = 'getRoutes'.$routeMethod;
 
-        foreach (Route::$routeString() as $routeConfiguration)
-        {
+        if(!empty(Route::$routeString())) {
+            foreach (Route::$routeString() as $routeConfiguration) {
 
-            $dispatcher = new RouteDispatcher($routeConfiguration,count(Route::$routeString()));
-            $dispatcher->checkUrl();
+                $dispatcher = new RouteDispatcher($routeConfiguration, count(Route::$routeString()));
+                $dispatcher->checkUrl();
+            }
         }
-
+        else
+        {
+            require_once '../resources/404.php';
+        }
     }
 }
 

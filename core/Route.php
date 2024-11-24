@@ -15,6 +15,7 @@ class Route{
 
     public static function getRoutesPost()
     {
+
         return self::$routes_post;
     }
 

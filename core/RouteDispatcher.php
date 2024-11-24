@@ -24,15 +24,15 @@ class RouteDispatcher{
 
     public function checkUrl()
     {
-        if($_SERVER['REQUEST_URI'] !== '/')
-        {
+
+
             $this->requestUrl = $this->cleanUrl($_SERVER['REQUEST_URI']);
             $this->routeConfig->url = $this->cleanUrl($this->routeConfig->url);
 
             $this->setParamMap();
             $this->makeRegexRequest();
 
-        }
+
     }
 
     public function cleanUrl($uri)
