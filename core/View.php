@@ -6,7 +6,7 @@ class View
 {
     private static string $path;
     private static array $data;
-    public static function view(string $path,$data):string
+    public static function view(string $path,$data = []):string
     {
         self::$data = $data;
 

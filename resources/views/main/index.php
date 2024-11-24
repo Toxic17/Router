@@ -9,11 +9,5 @@
 </head>
 <body>
 <h1>this is string</h1>
-<h2>Post number: <?php echo $ID ?></h2>
-
-<form action="/main/form/send" method="post">
-    Enter value <input type="text" name="name">
-    <button>Send</button>
-</form>
 </body>
 </html>

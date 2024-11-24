@@ -68,6 +68,9 @@ class RouteDispatcher{
         }
         $this->requestUrl = implode('/',$requestUriArray);
         $this->requestUrl = str_replace('/','\/',$this->requestUrl);
+        if(strpos($this->requestUrl,"?")) {
+            $this->requestUrl = substr($this->requestUrl, 0, strpos($this->requestUrl, "?"));
+        }
         $this->run();
     }
 
