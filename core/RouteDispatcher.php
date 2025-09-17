@@ -14,19 +14,18 @@ class RouteDispatcher{
     private static int $count_init = 0;
 
     private int $count_routes = 0;
+    private $request;
 
-    public function __construct($routeConfig,$count_routes)
+    public function __construct($routeConfig,$count_routes,$request)
     {
         $this->routeConfig = $routeConfig;
         $this->count_routes = $count_routes;
-
+        $this->request = $request;
     }
 
     public function checkUrl()
     {
-
-
-            $this->requestUrl = $this->cleanUrl($_SERVER['REQUEST_URI']);
+            $this->requestUrl = $this->cleanUrl($this->request->path());
             $this->routeConfig->url = $this->cleanUrl($this->routeConfig->url);
 
             $this->setParamMap();

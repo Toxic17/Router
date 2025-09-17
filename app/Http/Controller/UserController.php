@@ -3,7 +3,7 @@
 namespace App\Http\Controller;
 
 use App\Model\User;
-use Core\View;
+use Core\Request;
 
 class UserController extends Controller
 {
@@ -12,5 +12,4 @@ class UserController extends Controller
         $users = User::getUsers();
         var_dump($users);
     }
-
 }

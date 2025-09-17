@@ -8,6 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-<h1>this is string</h1>
+  <form method="post" action="/post">
+    <input type="text" name="name">
+    <input type="submit">
+  </form>
 </body>
 </html>
