@@ -1,7 +1,6 @@
 <?php
 namespace Core;
 
-use Core\RouteConfig;
 use App\Http;
 
 class RouteDispatcher{
@@ -16,7 +15,10 @@ class RouteDispatcher{
     private int $count_routes = 0;
     private $request;
 
-    public function __construct($routeConfig,$count_routes,$request)
+    private Request $request;
+
+    public function __construct($routeConfig,$count_routes,Request $request)
+
     {
         $this->routeConfig = $routeConfig;
         $this->count_routes = $count_routes;
@@ -25,25 +27,21 @@ class RouteDispatcher{
 
     public function checkUrl()
     {
-            $this->requestUrl = $this->cleanUrl($this->request->path());
-            $this->routeConfig->url = $this->cleanUrl($this->routeConfig->url);
+        $this->requestUrl = $this->cleanUrl($this->request->getRequestTarget());
+        $this->routeConfig->url = $this->cleanUrl($this->routeConfig->url);
 
-            $this->setParamMap();
-            $this->makeRegexRequest();
-
-
+        $this->setParamMap();
+        $this->makeRegexRequest();
     }
 
     public function cleanUrl($uri)
     {
-
         return preg_replace('/(^\/)|(\/$)/','',$uri);
     }
 
     public function setParamMap()
     {
         $routeArray = explode('/',$this->routeConfig->url);
-
 
         foreach ($routeArray as $paramKey => $param)
         {
@@ -75,7 +73,6 @@ class RouteDispatcher{
 
     private function run()
     {
-
         if(preg_match("/^$this->requestUrl$/",$this->routeConfig->url))
         {
             $this->render();

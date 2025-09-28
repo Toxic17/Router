@@ -15,7 +15,6 @@ class Route{
 
     public static function getRoutesPost()
     {
-
         return self::$routes_post;
     }
 
@@ -30,7 +29,7 @@ class Route{
 
     public static function post(string $url,array $controller):RouteConfig
     {
-        $route_config = new RouteConfig($url,$controller[0],$controller[1],count(self::$routes_post)+1);
+        $route_config = new RouteConfig($url,$controller[0],$controller[1]);
         self::$routes_post[] = $route_config;
 
         return $route_config;
