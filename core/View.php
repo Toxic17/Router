@@ -17,7 +17,7 @@ class View
     private static function getContent():string
     {
         extract(self::$data);
-        $html = require_once self::$path;
+        $html = file_get_contents(self::$path);
 
         return $html;
 
