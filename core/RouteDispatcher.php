@@ -13,7 +13,6 @@ class RouteDispatcher{
     private static int $count_init = 0;
 
     private int $count_routes = 0;
-    private $request;
 
     private Request $request;
 
